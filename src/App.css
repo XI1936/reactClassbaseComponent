@@ -32,3 +32,30 @@
     width: inherit;
     height: 75%;
 }
+
+.searchBox{
+    height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #86b3f2;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    margin-bottom:1em;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+.searchBox>input{
+    height: 2.5em;
+    width: 28%;
+    border-radius: 1em;
+    border: none;
+    font-size: large;
+    padding: 1em;
+}
