@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import SearchBox from "./components/searchBox/search.component";
+import CardList from "./components/card-list/cardlist.component"
 
 function App() {
+  const catUrl="https://robohash.org/3?set=set4&size=450x450"
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={catUrl} className="App-logo" alt="logo" />
       </header>
+      <SearchBox/>
+      <CardList/>
     </div>
   );
 }
