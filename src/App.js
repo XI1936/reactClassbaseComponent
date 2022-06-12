@@ -1,18 +1,36 @@
 import './App.css';
 import SearchBox from "./components/searchBox/search.component";
 import CardList from "./components/card-list/cardlist.component"
+import { Component } from 'react';
 
-function App() {
-  const catUrl="https://robohash.org/3?set=set4&size=450x450"
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={catUrl} className="App-logo" alt="logo" />
-      </header>
-      <SearchBox/>
-      <CardList/>
-    </div>
-  );
+class App extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      catsData: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then((catsData) => this.setState(
+        () => {return {catsData:catsData}},
+        () => console.log(this.state)));
+
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+        </header>
+        <SearchBox />
+        <CardList cardList={this.state.catsData}/>
+      </div>
+    );
+  }
 }
-
 export default App;
