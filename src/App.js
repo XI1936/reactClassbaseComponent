@@ -9,7 +9,8 @@ class App extends Component {
     super();
 
     this.state = {
-      catsData: []
+      catsData: [],
+      searchKey:"",
     }
   }
 
@@ -22,13 +23,27 @@ class App extends Component {
 
   }
 
+  searchChange=(event)=>{
+    // console.log("search")
+    const searchKey=event.target.value.toLowerCase();
+    this.setState(()=>{
+      return {searchKey}
+    },
+    ()=>{console.log(this.state)})
+
+  }
   render() {
+    const {catsData,searchKey}=this.state;
+    const  {searchChange}=this;
+    const filteredCats=catsData.filter((cat)=>{
+      return cat.name.toLowerCase().includes(searchKey);
+    })
     return (
       <div className="App">
         <header className="App-header">
         </header>
-        <SearchBox />
-        <CardList cardList={this.state.catsData}/>
+        <SearchBox searchChange={searchChange}/>
+        <CardList cardList={filteredCats}/>
       </div>
     );
   }
