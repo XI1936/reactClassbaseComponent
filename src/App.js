@@ -42,7 +42,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-        <SearchBox searchChange={searchChange}/>
+        <SearchBox placeholderText="Search for cat..." searchChange={searchChange}/>
         <CardList cardList={filteredCats}/>
       </div>
     );
